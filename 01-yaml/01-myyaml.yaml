@@ -1,0 +1,36 @@
+# is used to add a comment in a yaml file
+# it is not mandatory to add a string in quotes
+# yaml is case sensitive. best practice in to use lower case
+
+my-course: "udemy-ml-ops-bootcamp"
+version: 1.0
+price: 299
+is_public: true
+release_date: 2026-04-01 # preferred date format is yyyy-mm-dd
+pre_enroll: null
+category:
+  - AWS
+  - DevOps
+  - AWS certification
+
+learners: ["kk", "ps"]
+learners_detail:
+  # method 1 to create an array
+  - name: "Kishan"
+    email: "kishk11@gmail.com"
+    role: "DS"
+  - name: "Pragya"
+    email: "ps24@gmail.com"
+    role: "QA"
+  # method 2 to create an array
+  - {name: "Nidhi", email: "ns26@gmail.com", role: "Dev"}
+
+short_description: >
+  3 learners participating in a MLops course.
+  This is a way to write multi-line string.
+  The string needs to start with '>' and the string start from the next line
+
+more_format_desc: |
+  This is another way to write a multi-line string.
+  The previous method saves the string as single line even though it is written in 3 lines.
+  This format saves the string as multi-line

@@ -1,0 +1,13 @@
+Metadata-Version: 2.4
+Name: hello_world_kk318
+Version: 0.0.1
+Summary: A hello-world example package
+Author: ichiraku_k
+Author-email: kishan.gitrepo@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: summary
