@@ -1,0 +1,23 @@
+artifact_path: /Users/kishan/Downloads/Udemy/mlops-bootcamp/mlops-bootcamp-udemy/06-mlflow/mlruns/2/models/m-c56b14765b714b709343f4890cd7c89f/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.12.13
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.8.0
+    skops_trusted_types: null
+mlflow_version: 3.11.1
+model_id: m-c56b14765b714b709343f4890cd7c89f
+model_size_bytes: 859
+model_uuid: m-c56b14765b714b709343f4890cd7c89f
+prompts: null
+run_id: 378fcf7f26924e819fc8fc1595d53cda
+utc_time_created: '2026-04-11 19:31:56.823459'
