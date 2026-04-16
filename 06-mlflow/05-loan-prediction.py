@@ -173,7 +173,7 @@ def eval_metrics(actual, pred):
     return(accuracy, f1, auc)
 
 
-def mlflow_logging(model, X, y, name):
+def mlflow_logging(model, X, y, model_name):
 
     with mlflow.start_run() as run:
         run_id = run.info.run_id
@@ -197,7 +197,7 @@ def mlflow_logging(model, X, y, name):
         # log model
         mlflow.sklearn.log_model(
             sk_model=model, 
-            name=name, 
+            name=model_name, 
             serialization_format="skops",
             # Explicitly trust the internal scikit-learn metric/scorer types
             skops_trusted_types=[

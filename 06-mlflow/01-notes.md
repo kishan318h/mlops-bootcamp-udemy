@@ -90,3 +90,91 @@ To run the project directly from GitHub, execute the following in terminal `mlfl
 - if the MLproject is inside a repo then copy the ssh link
 - if the MLproject is present inside a folder in report, then the link would be `github ssh link + #folder_name`
 - the run will create a new conda environment, activate that environment and run `mlflow ui` to see the run in UI
+
+
+## Load model for prediction
+To load the model using `mlflow.sklearn` use the following code in a .py file
+`mlflow.sklearn.load_model(f"runs:/{run_id}/{registered_model_name}")` - registered model name is the string passed in the name parameter in the log_model statement. Eg: RandomForestClassifier, LogisticRegression and DecisionTreeClassifier in 05-loan-prediction.py
+
+
+## Serving the model in local
+To serve the model in local using run_id and registered model name use the following command in the terminal: <br/>
+`mlflow models serve -m runs:/{run_id}/{registered_model_name} --port 9000 --env-manager local`
+
+
+## Generate predictions
+- Download Postman extension for VScode
+- Click on `New HTTPS request`
+- Paste the link of the served model. Change the request type to 'Post'
+- In Body, select `raw` and `json` format
+- Paste the test data in json format and send the request
+```
+{
+    "dataframe_split": {
+        "columns": [
+            "Gender",
+            "Married",
+            "Dependents",
+            "Education",
+            "Self_Employed",
+            "LoanAmount",
+            "Loan_Amount_Term",
+            "Credit_History",
+            "Property_Area",
+            "Total_Income"
+        ],
+        "data": [
+            [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                4.98745,
+                360.0,
+                1.0,
+                2.0,
+                8.698
+            ]
+        ]
+    }
+}
+```
+
+## Curl
+After creating the endpoint on local. Paste the following command in terminal to generate prediction
+
+```
+curl --location 'http://127.0.0.1:9000/invocations' \
+--header 'Content-Type: application/json' \
+--data '{
+    "dataframe_split": {
+        "columns": [
+            "Gender",
+            "Married",
+            "Dependents",
+            "Education",
+            "Self_Employed",
+            "LoanAmount",
+            "Loan_Amount_Term",
+            "Credit_History",
+            "Property_Area",
+            "TotalIncome"
+        ],
+        "data": [
+            [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                4.98745,
+                360.0,
+                1.0,
+                2.0,
+                8.698
+            ]
+        ]
+    }
+}'
+```
