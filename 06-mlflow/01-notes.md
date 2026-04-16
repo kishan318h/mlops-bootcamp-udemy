@@ -85,3 +85,8 @@ To create environment file
 
 MLflow project can be used to setup the experiment in other team members computer. If we share the entire folder on GIT.
 Executing the MLproject file will setup the project and environment. To run the `MLproject` file, go to the folder location via terminal and run the command `mlflow run . --experiment-name Predict_Loan_Status` (experiment name: Predict_Loan_Status)
+
+To run the project directly from GitHub, execute the following in terminal `mlflow run <github link> --experiment-name <name>`
+- if the MLproject is inside a repo then copy the ssh link
+- if the MLproject is present inside a folder in report, then the link would be `github ssh link + #folder_name`
+- the run will create a new conda environment, activate that environment and run `mlflow ui` to see the run in UI
