@@ -1,4 +1,4 @@
-name: loan_prediction
+name: Predict_Loan_Status
 channels: 
   - defaults
 
