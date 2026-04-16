@@ -62,3 +62,26 @@
 
 ### View logged features
 Mlflow has moved to sqllite logging from file base logging. To see the output run `mlflow ui --backend-store-uri sqlite:///mlflow.db` in the terminal and then open the displayed link.
+
+
+### MLflow Project file [Documentation](https://mlflow.org/docs/latest/ml/projects/)
+MLflow Projects provide a standard format for packaging and sharing reproducible data science code. Based on simple conventions, Projects enable seamless collaboration and automated execution across different environments and platforms.
+Every MLflow project consists of 3 elements:
+- Project Name: A human readable identifier for the project
+- Entry Point: Commands which can be execute within the project
+    - Parameter: Inputs with types and default values
+    - Commands - What gets executed when the entry point runs
+    - Environment - The execution context and dependencies
+- Environment: The software environment containing all dependencies needed to run the project. MLflow supports multiple environment types:
+    - Virtualenv: python_env.yaml
+    - Conda: conda.yaml
+    - Docker: Dockerfile
+    - System: None
+
+To create environment file
+- Create conda.yaml file
+- add name and channel
+- copy the dependencies from the conda.yaml file in mlflow ui
+
+MLflow project can be used to setup the experiment in other team members computer. If we share the entire folder on GIT.
+Executing the MLproject file will setup the project and environment. To run the `MLproject` file, go to the folder location via terminal and run the command `mlflow run . --experiment-name Predict_Loan_Status` (experiment name: Predict_Loan_Status)
