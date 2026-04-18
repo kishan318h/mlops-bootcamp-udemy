@@ -178,3 +178,38 @@ curl --location 'http://127.0.0.1:9000/invocations' \
     }
 }'
 ```
+
+## Log informantion in MySQL
+
+- Install mysql client on the virtual environment 
+    - `brew install mysql pkg-config` - required for mac
+    - `pip install mysqlclient`
+- Start mlflow server using MySql as database
+    - `mlflow server --host 0.0.0.0 --port 5001 --backend-store-uri mysql://root:<password>@localhost/mlflow_db --default-artifact-root $PWD/mlruns`
+- In the python code set tracking uri at the start of the notebook and at the start of the runs `mlflow.set_tracking_uri('http://0.0.0.0:5001/')`. Tracking uri is the combination of host and port
+- When we run the python script, the mlflow library will log the experiment at the mentioned port (5001 in this case)
+- It will also create tables in the database for all possible things which can be tracked my mlflow
+- After the first run, if we run the code again, the metrics will be appended in the tables
+
+### Running the model using MLproject file
+- in command line set uri: `export MLFLOW_TRACKING_URI=http://0.0.0.0:5001`
+    - tested it with a code which did not have tracking uri in the file
+    - experiment was logged at port 5001
+- run experiment: `mlflow run . --experiment-name Predict_Loan_Status`
+    - it will create a new conda environment and install required libraries before running the code
+
+## Register models
+
+- once all the models are created. We can register models by clicking on a model and then 'Register'
+- If the project is same, create one model name in registry and keep adding model
+- Each new model will be assigned a version numbers in incremental order
+- Highest version does not mean that they are production model
+- To decide a model for production - assign aliases like challenger, champion
+    - alias is user defined and the above mentioned examples are industry practices
+
+### Serve model
+- before serving a model ensure that alias is assigned to the model for production
+- `export MLFLOW_TRACKING_URI=http:/0.0.0.0:5001`
+- `mlflow models serve -m "models:/exp_loan_prediction@champion" --env-manager local`
+- check file `08-serve-model.py` to see prediciton via code
+

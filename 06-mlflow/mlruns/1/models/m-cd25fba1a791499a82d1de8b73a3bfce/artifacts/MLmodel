@@ -1,0 +1,28 @@
+artifact_path: /Users/kishan/downloads/udemy/mlops-bootcamp/mlops-bootcamp-udemy/06-mlflow/mlruns/1/models/m-cd25fba1a791499a82d1de8b73a3bfce/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.skops
+    predict_fn: predict
+    python_version: 3.12.13
+  sklearn:
+    code: null
+    pickled_model: model.skops
+    serialization_format: skops
+    sklearn_version: 1.8.0
+    skops_trusted_types:
+    - sklearn.metrics._scorer._passthrough_scorer
+    - sklearn.metrics._classification.f1_score
+    - sklearn.metrics._classification.accuracy_score
+    - sklearn.metrics._ranking.roc_auc_score
+    - sklearn.metrics._scorer._Scorer
+mlflow_version: 3.11.1
+model_id: m-cd25fba1a791499a82d1de8b73a3bfce
+model_size_bytes: 21021260
+model_uuid: m-cd25fba1a791499a82d1de8b73a3bfce
+prompts: null
+run_id: 7fce3931576047789589f4607e2b452a
+utc_time_created: '2026-04-18 16:22:40.692881'
