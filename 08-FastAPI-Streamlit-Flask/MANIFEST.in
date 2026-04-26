@@ -1,0 +1,16 @@
+include *.txt
+include README.md
+include *.py
+
+# to add all the files included in a folder
+recursive-include ./prediction_model/*
+
+include prediction_model/datasets/*.csv
+include prediction_model/trained_model/*.pkl
+include prediction_model/VERSION
+
+include ./tests/*
+
+recursive-exclude __pycache__
+recursive-exclude * *.py[co]
+exclude notes.md
