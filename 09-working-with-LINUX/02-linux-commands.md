@@ -73,5 +73,4 @@ drwxrwxr-x or -rw-rw-r-- : denotes read/write/execute permissions of folders or 
 6. To change the permission level of files or folder use the following syntax along with sum of number representation for each group (7: rwx, 6: rw-, 5: r-x, 4: r--, 3: -wx, 2: -w-, 1: --x, 0: ---)
     - `chmod 777 file/dir` - gives rwx permission to all user groups
     - `chmod 400 file/dir` - gives read permission to the super user and no permission to owner and others. blocks any updates on the file
-    - permission which number 1,2,3 means that the user will not be able to see the folder but they can write or execute (depending on permission), if they know the file/folder name
-
+    - permission with numbers 1,2,3 mean that the user will not be able to see the folder but they can write or execute (depending on permission), if they know the file/folder name
